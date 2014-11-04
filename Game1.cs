@@ -51,6 +51,7 @@ namespace Labb1
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+
         }
 
         /// <summary>
@@ -75,8 +76,10 @@ namespace Labb1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             // TODO: Add your drawing code here
+
+            //Kan använda konsolen till att skriva ut testdata
+            //System.Console.WriteLine(64 + (7-7) * 64);
 
             base.Draw(gameTime);
         }

@@ -10,11 +10,18 @@ namespace Labb1.Content
     {
         int sizeOfTile = 64;
         int borderSize = 64;
-        Vector2 vec;
 
-        public Vector2 getVisualX(Vector2 logical){
-            float x = borderSize + logical.X * sizeOfTile;
-            float y = borderSize + logical.Y * sizeOfTile;
+        public Vector2 getVisualForWhite(Vector2 logicalPos){
+            float x = borderSize + logicalPos.X * sizeOfTile;
+            float y = borderSize + logicalPos.Y * sizeOfTile;
+
+            return new Vector2(x, y);
+        }
+        //Inverterat schackbräde
+        public Vector2 getVisualForBlack(Vector2 logicalPos)
+        {
+            float x = borderSize + (7 - logicalPos.X) * sizeOfTile;
+            float y = borderSize + (7 - logicalPos.Y) * sizeOfTile;
 
             return new Vector2(x, y);
         }
