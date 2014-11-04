@@ -15,8 +15,8 @@ namespace Labb1.Content
         private float scale;
 
         public void reScale(int width/*320*/, int height/*240*/){
-            int scaleX = (width - borderSize * 2) / levelWidth;
-            int scaleY = (height - borderSize * 2) / levelHeight;
+            float scaleX = (width - borderSize * 2) / levelWidth;
+            float scaleY = (height - borderSize * 2) / levelHeight;
 
             //Sätter skärmen efter vilken av X/Y som är minst
             scale = scaleX;
