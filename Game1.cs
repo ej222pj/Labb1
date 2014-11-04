@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Labb1.Content.View;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +12,7 @@ namespace Labb1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        BallView drawBall;
 
         public Game1()
             : base()
@@ -42,6 +44,7 @@ namespace Labb1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            drawBall = new BallView(GraphicsDevice, Content);
         }
 
         /// <summary>
@@ -77,6 +80,8 @@ namespace Labb1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             // TODO: Add your drawing code here
+
+            drawBall.drawBox();
 
             //Kan använda konsolen till att skriva ut testdata
             //System.Console.WriteLine(64 + (7-7) * 64);
