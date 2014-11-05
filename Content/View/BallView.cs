@@ -22,10 +22,10 @@ namespace Labb1.Content.View
 
 
 
-        public BallView(GraphicsDevice graphicsDevice, ContentManager content, int width, int height)
+        public BallView(GraphicsDevice graphicsDevice, ContentManager content)
         {
-            m_windowWidth = 100; //graphicsDevice.Viewport.Width;
-            m_windowHeight = 100; //graphicsDevice.Viewport.Height;
+            m_windowWidth = graphicsDevice.Viewport.Width;
+            m_windowHeight = graphicsDevice.Viewport.Height;
 
             camera = new Camera(m_windowWidth, m_windowHeight);
             camera.setDimentions(m_windowWidth, m_windowHeight);
@@ -42,9 +42,9 @@ namespace Labb1.Content.View
         internal void drawBall(BallSimulation ball)
         {
             int vx = (int)(ball.getXPos() * m_windowWidth);
-            int vy = (int)(ball.getXPos() * m_windowHeight);
+            int vy = (int)(ball.getYPos() * m_windowHeight);
 
-            Rectangle destrect = new Rectangle(vx - 15, vy - 15, 30, 30);
+            Rectangle destrect = new Rectangle(vx - 25, vy - 25, 50, 50);
 
             spriteBatch.Begin();
             spriteBatch.Draw(boxTexture, destrect, Color.White);

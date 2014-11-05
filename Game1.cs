@@ -21,7 +21,19 @@ namespace Labb1
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            
+            graphics.PreferredBackBufferWidth = 300;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = 300;   // set this value to the desired height of your window
+
+            //Kan rezisa med denna men den töjer allt
+            /*this.Window.AllowUserResizing = true;
+            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
+            */
+
+            graphics.ApplyChanges();
+           
+            Content.RootDirectory = "Content";   
         }
 
         /// <summary>
@@ -47,7 +59,7 @@ namespace Labb1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            drawBall = new BallView(GraphicsDevice, Content, 100, 100);
+            drawBall = new BallView(GraphicsDevice, Content);
         }
 
         /// <summary>
