@@ -1,4 +1,5 @@
-﻿using Labb1.Content.View;
+﻿using Labb1.Content.Model;
+using Labb1.Content.View;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,6 +14,8 @@ namespace Labb1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         BallView drawBall;
+        BallSimulation ball = new BallSimulation();
+
 
         public Game1()
             : base()
@@ -44,7 +47,7 @@ namespace Labb1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            drawBall = new BallView(GraphicsDevice, Content);
+            drawBall = new BallView(GraphicsDevice, Content, 100, 100);
         }
 
         /// <summary>
@@ -67,6 +70,8 @@ namespace Labb1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
+            ball.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -81,7 +86,8 @@ namespace Labb1
             GraphicsDevice.Clear(Color.CornflowerBlue);
             // TODO: Add your drawing code here
 
-            drawBall.drawBox();
+            //drawBall.drawLevel();
+            drawBall.drawBall(ball);
 
             //Kan använda konsolen till att skriva ut testdata
             //System.Console.WriteLine(64 + (7-7) * 64);
