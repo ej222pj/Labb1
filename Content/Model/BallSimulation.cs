@@ -14,22 +14,22 @@ namespace Labb1.Content.Model
 
             ball.m_x += elapsedTime * ball.speedX;
 
-            if (ball.m_x > 1.0f)
+            if (ball.m_x + ball.diameter / 2 > 1.0f)
             {
                 ball.speedX = ball.speedX * -1.0f;
             }
-            if (ball.m_x < 0.0f)
+            if (ball.m_x - ball.diameter / 2 < 0.0f)
             {
                 ball.speedX = ball.speedX * -1.0f;
             }
 
             ball.m_y += elapsedTime * ball.speedY;
 
-            if (ball.m_y > 1.0f)
+            if (ball.m_y + ball.diameter / 2 > 1.0f)
             {
                 ball.speedY = ball.speedY * -1.0f;
             }
-            if (ball.m_y < 0.0f)
+            if (ball.m_y - ball.diameter / 2 < 0.0f)
             {
                 ball.speedY = ball.speedY * -1.0f;
             }
@@ -42,6 +42,10 @@ namespace Labb1.Content.Model
        public float getYPos()
        {
            return ball.m_y;
+       }
+       public float getDiameter()
+       {
+           return ball.diameter;
        }
     }
 }

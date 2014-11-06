@@ -12,7 +12,7 @@ namespace Labb1.Content.View
     class BallView
     {
         private SpriteBatch spriteBatch;
-        private Texture2D boxTexture;
+        private Texture2D circleTexture;
 
         private int m_windowWidth;
         private int m_windowHeight;
@@ -32,7 +32,7 @@ namespace Labb1.Content.View
             
 
             spriteBatch = new SpriteBatch(graphicsDevice);
-            boxTexture = content.Load<Texture2D>("images");
+            circleTexture = content.Load<Texture2D>("SpinningBeachBallOfDeath");
         }
 
         internal void drawLevel(Rectangle rectangleToDraw, int thicknessOfBorder, Color borderColor, Texture2D pixel) 
@@ -70,11 +70,14 @@ namespace Labb1.Content.View
         {
             int vx = (int)(ball.getXPos() * frame);
             int vy = (int)(ball.getYPos() * frame);
-
-            Rectangle newBall = new Rectangle(vx - 50, vy , 50, 50);
-
+            //float vx = camera.toViewX(ball.getXPos());
+            //float vy = camera.toViewY(ball.getYPos());
+            //float vBallSize = (ball.getDiameter() * camera.getScale());
+            //vBallSize = vBallSize  * -1.0f;
+            //drawable, vx - vBallSize / 2.0f, vy - vBallSize / 2.0f, vBallSize, vBallSize
+            Rectangle newBall = new Rectangle(vx - 25, vy - 25, 50, 50);
             spriteBatch.Begin();
-            spriteBatch.Draw(boxTexture, newBall, Color.White);
+            spriteBatch.Draw(circleTexture, newBall, Color.White);             
             spriteBatch.End();
         }
     }

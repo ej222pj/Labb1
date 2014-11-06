@@ -54,3 +54,4 @@ C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\images.png
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\k20Xyu7.gif
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\beach.jpg
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\Frame.png
+C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\SpinningBeachBallOfDeath.png
