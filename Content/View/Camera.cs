@@ -21,8 +21,8 @@ namespace Labb1.Content
 
         public void setDimentions() 
         {
-            int scaleX = (levelWidth - frame * 2) / levelWidth;
-            int scaleY = (levelHeight - frame * 2) / levelHeight;
+            float scaleX = (levelWidth - frame * 2) / frame;
+            float scaleY = (levelHeight - frame * 2) / frame; 
 
             scale = scaleX;
             if (scaleY < scaleX)

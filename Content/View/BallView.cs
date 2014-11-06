@@ -70,12 +70,10 @@ namespace Labb1.Content.View
         {
             int vx = (int)(ball.getXPos() * frame);
             int vy = (int)(ball.getYPos() * frame);
-            //float vx = camera.toViewX(ball.getXPos());
-            //float vy = camera.toViewY(ball.getYPos());
-            //float vBallSize = (ball.getDiameter() * camera.getScale());
+            int vBallSize = (int)(ball.getDiameter() * frame);
             //vBallSize = vBallSize  * -1.0f;
             //drawable, vx - vBallSize / 2.0f, vy - vBallSize / 2.0f, vBallSize, vBallSize
-            Rectangle newBall = new Rectangle(vx - 25, vy - 25, 50, 50);
+            Rectangle newBall = new Rectangle(vx - vBallSize / 2, vy - vBallSize / 2, vBallSize, vBallSize);
             spriteBatch.Begin();
             spriteBatch.Draw(circleTexture, newBall, Color.White);             
             spriteBatch.End();
