@@ -52,4 +52,5 @@ C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.csprojResolveAssemblyReference.cache
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\images.png
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\k20Xyu7.gif
-C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\images.png
+C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\beach.jpg
+C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\Frame.png
