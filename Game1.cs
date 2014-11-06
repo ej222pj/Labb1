@@ -22,7 +22,7 @@ namespace Labb1
         {
             graphics = new GraphicsDeviceManager(this);
             
-            graphics.PreferredBackBufferWidth = 300;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferWidth = 200;  // set this value to the desired width of your window
             graphics.PreferredBackBufferHeight = 300;   // set this value to the desired height of your window
 
             //Kan rezisa med denna men den töjer allt
@@ -31,7 +31,7 @@ namespace Labb1
             graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
             */
 
-            graphics.ApplyChanges();
+            //graphics.ApplyChanges();
            
             Content.RootDirectory = "Content";   
         }
@@ -82,7 +82,6 @@ namespace Labb1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-
             ball.Update(gameTime);
             // TODO: Add your update logic here
 
@@ -95,7 +94,8 @@ namespace Labb1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DeepSkyBlue);
+            //GraphicsDevice.Clear("images");
             // TODO: Add your drawing code here
 
             //drawBall.drawLevel();
