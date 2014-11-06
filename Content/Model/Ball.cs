@@ -11,7 +11,7 @@ namespace Labb1.Content.Model
         public float m_y = 0.0f;
         //public float centerX = 1;
         //public float centerY = 1;
-        //public float diameter = 0.1f;
+        //public float diameter = 0.1f; 
         public float speedX = 0.6f;
         public float speedY = 0.5f;
     }

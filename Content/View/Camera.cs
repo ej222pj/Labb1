@@ -12,7 +12,7 @@ namespace Labb1.Content
             private int levelHeight;
             private int width;
             private int height;
-            private static int frame = 100;
+            private static int frame = 1000;
             private float scale;
 
         public Camera(int levelWidth, int levelHeight) 
