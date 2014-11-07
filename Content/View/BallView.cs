@@ -13,10 +13,12 @@ namespace Labb1.Content.View
     {
         private SpriteBatch spriteBatch;
         private Texture2D circleTexture;
+        private Texture2D background;
 
         private int m_windowWidth;
         private int m_windowHeight;
         private int frame;
+        private int frameOffset = 10;
 
         private Camera camera;
 
@@ -33,12 +35,16 @@ namespace Labb1.Content.View
 
             spriteBatch = new SpriteBatch(graphicsDevice);
             circleTexture = content.Load<Texture2D>("SpinningBeachBallOfDeath");
+            background = content.Load<Texture2D>("strand");
         }
 
         internal void drawLevel(Rectangle rectangleToDraw, int thicknessOfBorder, Color borderColor, Texture2D pixel) 
         {                     
             spriteBatch.Begin();
-
+            //Sätter en bakgrund
+            spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth, m_windowHeight), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
+ 
+            //Sätter ramen till stolek av den minsta sidan av skärmen
             frame = rectangleToDraw.Width;
             if (rectangleToDraw.Height < rectangleToDraw.Width)
             {
@@ -46,34 +52,33 @@ namespace Labb1.Content.View
             }
             camera.setFrame(frame);
 
-            camera.setDimentions();
-            rectangleToDraw.X = (int)camera.getScale();
-            rectangleToDraw.Y = (int)camera.getScale();
-            rectangleToDraw.Width = (int)camera.toViewX(rectangleToDraw.X);
-            rectangleToDraw.Height = (int)camera.toViewY(rectangleToDraw.Y);
+            
+            rectangleToDraw.Width = frame - frameOffset;
+            rectangleToDraw.Height = frame - frameOffset;
+
+            
             
             // Draw top line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, thicknessOfBorder), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + frameOffset, rectangleToDraw.Y + frameOffset, rectangleToDraw.Width - frameOffset, thicknessOfBorder), borderColor);
             
             // Draw left line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, thicknessOfBorder, rectangleToDraw.Height), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + frameOffset, rectangleToDraw.Y + frameOffset, thicknessOfBorder, rectangleToDraw.Height - frameOffset), borderColor);
  
             // Draw right line
-            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder), rectangleToDraw.Y, thicknessOfBorder, rectangleToDraw.Height), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder), rectangleToDraw.Y + frameOffset, thicknessOfBorder, rectangleToDraw.Height - frameOffset), borderColor);
 
             // Draw bottom line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder, rectangleToDraw.Width, thicknessOfBorder), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + frameOffset, rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder, rectangleToDraw.Width - frameOffset, thicknessOfBorder), borderColor);
             spriteBatch.End();
         } 
 
         internal void drawBall(BallSimulation ball)
         {
-            int vx = (int)(ball.getXPos() * frame);
-            int vy = (int)(ball.getYPos() * frame);
-            int vBallSize = (int)(ball.getDiameter() * frame);
-            //vBallSize = vBallSize  * -1.0f;
-            //drawable, vx - vBallSize / 2.0f, vy - vBallSize / 2.0f, vBallSize, vBallSize
-            Rectangle newBall = new Rectangle(vx - vBallSize / 2, vy - vBallSize / 2, vBallSize, vBallSize);
+            int vx = (int)(ball.getXPos() * frame - 10);
+            int vy = (int)(ball.getYPos() * frame + 10);
+            int ballSize = (int)(ball.getDiameter() * frame);
+
+            Rectangle newBall = new Rectangle(vx - ballSize / 2, vy - ballSize / 2, ballSize, ballSize);
             spriteBatch.Begin();
             spriteBatch.Draw(circleTexture, newBall, Color.White);             
             spriteBatch.End();

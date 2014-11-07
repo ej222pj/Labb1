@@ -8,9 +8,9 @@ namespace Labb1.Content.Model
     class BallSimulation
     {
        Ball ball = new Ball();
-       internal void Update(Microsoft.Xna.Framework.GameTime gameTime)
+       internal void update(float elapsedTime)
        {
-            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             ball.m_x += elapsedTime * ball.speedX;
 
@@ -46,6 +46,7 @@ namespace Labb1.Content.Model
        public float getDiameter()
        {
            return ball.diameter;
+       
        }
     }
 }

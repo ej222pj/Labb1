@@ -26,7 +26,6 @@ C:\Users\Eric\Documents\GitHub\Labb1 Spelprogrammering\Labb1\obj\x86\Debug\Labb1
 C:\Users\Eric\Documents\GitHub\Labb1 Spelprogrammering\Labb1\bin\Windows\Debug\Content\Bitmap1.bmp
 C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.exe
 C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.pdb
-C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\Bitmap1.bmp
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Labb1.exe
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Labb1.pdb
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\MonoGame.Framework.dll
@@ -50,8 +49,5 @@ C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.csprojResolveAssemblyReference.cache
-C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\images.png
-C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\k20Xyu7.gif
-C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\beach.jpg
-C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\Frame.png
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\SpinningBeachBallOfDeath.png
+C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\strand.jpg

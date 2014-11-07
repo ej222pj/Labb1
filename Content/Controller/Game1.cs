@@ -14,8 +14,7 @@ namespace Labb1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         BallView drawBall;
-        BallSimulation ball = new BallSimulation();
-        private Texture2D background;
+        BallSimulation model = new BallSimulation();
         private Texture2D pixel;
 
 
@@ -25,7 +24,7 @@ namespace Labb1
             graphics = new GraphicsDeviceManager(this);
             
             graphics.PreferredBackBufferWidth = 600;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 600;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferHeight = 300;   // set this value to the desired height of your window
 
             //Kan rezisa med denna men den töjer allt
             /*this.Window.AllowUserResizing = true;
@@ -67,9 +66,6 @@ namespace Labb1
             pixel = new Texture2D(GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             pixel.SetData(new[] { Color.White }); // so that we can draw whatever color we want on top of it
 
-
-            background = Content.Load<Texture2D>("beach");
-
             // TODO: use this.Content to load your game content here
             drawBall = new BallView(GraphicsDevice, Content);
         }
@@ -94,7 +90,8 @@ namespace Labb1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            ball.Update(gameTime);
+            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            model.update(elapsedTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -108,17 +105,11 @@ namespace Labb1
         {
             //GraphicsDevice.Clear(Color.DeepSkyBlue);
 
-            // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            spriteBatch.Draw(background, new Rectangle(0, 0, Window.ClientBounds.Width,Window.ClientBounds.Height), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
-            spriteBatch.End();
-
-
-            // Create any rectangle you want. Here we'll use the TitleSafeArea for fun.
+            //Ritar ut ramen
             Rectangle titleSafeRectangle = GraphicsDevice.Viewport.TitleSafeArea;
 
-            drawBall.drawLevel(titleSafeRectangle, 5, Color.Red, pixel);
-            drawBall.drawBall(ball);
+            drawBall.drawLevel(titleSafeRectangle, 1, Color.Black, pixel);
+            drawBall.drawBall(model);
 
             //Kan använda konsolen till att skriva ut testdata
             //System.Console.WriteLine(64 + (7-7) * 64);

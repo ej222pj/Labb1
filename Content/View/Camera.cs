@@ -21,31 +21,18 @@ namespace Labb1.Content
 
         public void setDimentions() 
         {
-            float scaleX = (levelWidth - frame * 2) / frame;
-            float scaleY = (levelHeight - frame * 2) / frame; 
+            //float scaleX = (levelWidth - frame * 2) / frame;
+           // float scaleY = (levelHeight - frame * 2) / frame; 
 
-            scale = scaleX;
-            if (scaleY < scaleX)
-            {
-                scale = scaleY;
-            }
+            //scale = scaleX;
+            //if (scaleY < scaleX)
+            //{
+            //    scale = scaleY;
+            //}
         }
         public void setFrame(int frameSize)
         {
             frame = frameSize;
-        }
-        public float getScale()
-        {
-            return scale;
-        }
-        public float toViewX(float x)
-        {
-            return x * scale + frame;
-        }
-
-        public float toViewY(float y)
-        {
-            return y * scale + frame;
         }
     }
 }
