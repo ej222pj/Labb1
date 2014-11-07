@@ -24,7 +24,7 @@ namespace Labb1
             graphics = new GraphicsDeviceManager(this);
             
             graphics.PreferredBackBufferWidth = 600;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 300;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferHeight = 500;   // set this value to the desired height of your window
 
             //Kan rezisa med denna men den töjer allt
             /*this.Window.AllowUserResizing = true;
