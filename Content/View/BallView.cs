@@ -18,16 +18,15 @@ namespace Labb1.Content.View
         private int m_windowWidth;
         private int m_windowHeight;
         //private int frame;
-        private int ballSize;
 
         private Camera camera;
 
-        public BallView(GraphicsDevice graphicsDevice, ContentManager content)
+        public BallView(GraphicsDevice graphicsDevice, ContentManager content, int frame)
         {
             m_windowWidth = graphicsDevice.Viewport.Width;
             m_windowHeight = graphicsDevice.Viewport.Height;
 
-            camera = new Camera(1, 1);
+            camera = new Camera(frame);
             camera.setDimensions(m_windowWidth, m_windowHeight);
             
 
@@ -38,10 +37,22 @@ namespace Labb1.Content.View
 
         internal void drawLevel(Rectangle rectangleToDraw, int thicknessOfBorder, Color borderColor, Texture2D pixel) 
         {  
-            spriteBatch.Begin(); 
+            spriteBatch.Begin();
+
+            int extraFrameX = 0;
+            int extraFrameY = 0;
+            if (rectangleToDraw.Height > rectangleToDraw.Width)
+            {
+                extraFrameX = rectangleToDraw.Height - rectangleToDraw.Width;
+            }
+            if (rectangleToDraw.Height < rectangleToDraw.Width) 
+            {
+                extraFrameY = rectangleToDraw.Width - rectangleToDraw.Height;
+            }
+            
             
             //Sätter en bakgrund
-            spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth, m_windowHeight), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
+            //spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth , m_windowHeight ), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
  
             //Sätter ramen till stolek av den minsta sidan av skärmen
             //frame = rectangleToDraw.Width;
@@ -57,14 +68,14 @@ namespace Labb1.Content.View
             // Draw top line
             spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, thicknessOfBorder), borderColor);
             
-            // Draw left line
+            //// Draw left line
             spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, thicknessOfBorder, rectangleToDraw.Height), borderColor);
  
-            // Draw right line
-            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder), rectangleToDraw.Y, thicknessOfBorder, rectangleToDraw.Height), borderColor);
+            //// Draw right line
+            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder - extraFrameY), rectangleToDraw.Y, thicknessOfBorder + extraFrameY, rectangleToDraw.Height), borderColor);
 
-            // Draw bottom line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder, rectangleToDraw.Width, thicknessOfBorder), borderColor);
+            //// Draw bottom line
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder - extraFrameX, rectangleToDraw.Width, thicknessOfBorder + extraFrameX), borderColor);
             spriteBatch.End();
         } 
 
@@ -72,7 +83,7 @@ namespace Labb1.Content.View
         {
             int vx = (int)(ball.getXPos() * camera.getScale() + camera.getFrame());
             int vy = (int)(ball.getYPos() * camera.getScale() + camera.getFrame());
-            ballSize = (int)(ball.getDiameter() * 100);
+            int ballSize = (int)(ball.getDiameter() * camera.getScale());
 
             Rectangle newBall = new Rectangle(vx - ballSize / 2, vy - ballSize / 2, ballSize, ballSize);
 

@@ -16,6 +16,7 @@ namespace Labb1
         BallView drawBall;
         BallSimulation model = new BallSimulation();
         private Texture2D pixel;
+        private static int frame = 20;
 
 
         public Game1()
@@ -23,8 +24,8 @@ namespace Labb1
         {
             graphics = new GraphicsDeviceManager(this);
             
-            graphics.PreferredBackBufferWidth = 500;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 500;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferWidth = 900;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = 800;   // set this value to the desired height of your window
 
             //Kan rezisa med denna men den töjer allt
             /*this.Window.AllowUserResizing = true;
@@ -67,7 +68,7 @@ namespace Labb1
             pixel.SetData(new[] { Color.White }); // so that we can draw whatever color we want on top of it
 
             // TODO: use this.Content to load your game content here
-            drawBall = new BallView(GraphicsDevice, Content);
+            drawBall = new BallView(GraphicsDevice, Content, frame);
         }
 
         /// <summary>
@@ -103,12 +104,12 @@ namespace Labb1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.DeepSkyBlue);
+            GraphicsDevice.Clear(Color.DeepSkyBlue);
 
             //Ritar ut ramen
             Rectangle titleSafeRectangle = GraphicsDevice.Viewport.TitleSafeArea;
 
-            drawBall.drawLevel(titleSafeRectangle, 1, Color.Black, pixel);
+            drawBall.drawLevel(titleSafeRectangle, frame, Color.Black, pixel);
             drawBall.drawBall(model);
 
             //Kan använda konsolen till att skriva ut testdata

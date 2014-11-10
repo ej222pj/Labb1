@@ -10,8 +10,6 @@ namespace Labb1.Content.Model
        Ball ball = new Ball();
        internal void update(float elapsedTime)
        {
-            //float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             ball.m_x += elapsedTime * ball.speedX;
 
             if (ball.m_x + ball.diameter / 2 > 1.0f)
@@ -33,7 +31,6 @@ namespace Labb1.Content.Model
             {
                 ball.speedY = ball.speedY * -1.0f;
             }
-
        }
        public float getXPos()
        {

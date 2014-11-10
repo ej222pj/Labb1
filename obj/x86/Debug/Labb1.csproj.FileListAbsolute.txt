@@ -48,6 +48,6 @@ C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.Direct2D1.xml
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.Direct3D9.xml
-C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.csprojResolveAssemblyReference.cache
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\SpinningBeachBallOfDeath.png
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\strand.jpg
+C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.csprojResolveAssemblyReference.cache
