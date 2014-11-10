@@ -52,18 +52,7 @@ namespace Labb1.Content.View
             
             
             //Sätter en bakgrund
-            //spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth , m_windowHeight ), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
- 
-            //Sätter ramen till stolek av den minsta sidan av skärmen
-            //frame = rectangleToDraw.Width;
-            //if (rectangleToDraw.Height < rectangleToDraw.Width)
-            //{
-            //    frame = rectangleToDraw.Height;
-            //}
-            //camera.setFrame(frame);
-            
-            //rectangleToDraw.Width = frame;
-            //rectangleToDraw.Height = frame;
+            spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth , m_windowHeight ), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
 
             // Draw top line
             spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, thicknessOfBorder), borderColor);
