@@ -10,10 +10,9 @@ namespace Labb1.Content
     {
             private int levelWidth;
             private int levelHeight;
-            private static int frame;
-            public int width = 10;
-            public int height = 10;
-            private int offSet = 10;
+            public static int frame = 100;
+            public int width;
+            public int height;
             private float scale;
 
             public Camera(int levelWidth, int levelHeight)
@@ -22,10 +21,13 @@ namespace Labb1.Content
                 this.levelHeight = levelHeight;
             }
 
-            void setDimensions()
+            public void setDimensions(int width, int height)
             {
-                int scaleX = (width - offSet * 2) / levelWidth;
-                int scaleY = (height - offSet * 2) / levelHeight;
+                this.width = width;
+                this.height = height;
+
+                int scaleX = (width - frame * 2) / levelWidth;
+                int scaleY = (height - frame * 2) / levelHeight;
 
                 scale = scaleX;
                 if (scaleY < scaleX)
@@ -33,13 +35,14 @@ namespace Labb1.Content
                     scale = scaleY;
                 }
             }
-        public void setFrame(int frameSize)
-        {
-            frame = frameSize;
-        }
+
         public float getScale()
         {
             return scale;
+        }
+        public int getFrame() 
+        {
+            return frame;
         }
         public float toViewX(float x)
         {

@@ -17,7 +17,7 @@ namespace Labb1.Content.View
 
         private int m_windowWidth;
         private int m_windowHeight;
-        private int frame;
+        //private int frame;
         private int ballSize;
 
         private Camera camera;
@@ -27,7 +27,8 @@ namespace Labb1.Content.View
             m_windowWidth = graphicsDevice.Viewport.Width;
             m_windowHeight = graphicsDevice.Viewport.Height;
 
-            camera = new Camera(m_windowWidth, m_windowHeight);
+            camera = new Camera(1, 1);
+            camera.setDimensions(m_windowWidth, m_windowHeight);
             
 
             spriteBatch = new SpriteBatch(graphicsDevice);
@@ -43,15 +44,15 @@ namespace Labb1.Content.View
             spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth, m_windowHeight), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
  
             //Sätter ramen till stolek av den minsta sidan av skärmen
-            frame = rectangleToDraw.Width;
-            if (rectangleToDraw.Height < rectangleToDraw.Width)
-            {
-                frame = rectangleToDraw.Height;
-            }
-            camera.setFrame(frame);
+            //frame = rectangleToDraw.Width;
+            //if (rectangleToDraw.Height < rectangleToDraw.Width)
+            //{
+            //    frame = rectangleToDraw.Height;
+            //}
+            //camera.setFrame(frame);
             
-            rectangleToDraw.Width = frame;
-            rectangleToDraw.Height = frame;
+            //rectangleToDraw.Width = frame;
+            //rectangleToDraw.Height = frame;
 
             // Draw top line
             spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, thicknessOfBorder), borderColor);
@@ -69,9 +70,9 @@ namespace Labb1.Content.View
 
         internal void drawBall(BallSimulation ball)
         {
-            int vx = (int)(ball.getXPos() * frame);
-            int vy = (int)(ball.getYPos() * frame);
-            ballSize = (int)(ball.getDiameter() * frame);
+            int vx = (int)(ball.getXPos() * camera.getScale() + camera.getFrame());
+            int vy = (int)(ball.getYPos() * camera.getScale() + camera.getFrame());
+            ballSize = (int)(ball.getDiameter() * 100);
 
             Rectangle newBall = new Rectangle(vx - ballSize / 2, vy - ballSize / 2, ballSize, ballSize);
 
