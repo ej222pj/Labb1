@@ -12,10 +12,5 @@ namespace Labb1.Content.Model
         public float speedX = 0.7f;
         public float speedY = 0.6f;
         public float diameter = 0.1f;
-
-        public void setSpeedX(float X) 
-        {
-            speedX = X;
-        }
     }
 }

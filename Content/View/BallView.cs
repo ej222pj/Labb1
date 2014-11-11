@@ -17,7 +17,6 @@ namespace Labb1.Content.View
 
         private int m_windowWidth;
         private int m_windowHeight;
-        //private int frame;
 
         private Camera camera;
 
@@ -45,7 +44,7 @@ namespace Labb1.Content.View
             {
                 extraFrameX = rectangleToDraw.Height - rectangleToDraw.Width;
             }
-            if (rectangleToDraw.Height < rectangleToDraw.Width) 
+            if (rectangleToDraw.Width > rectangleToDraw.Height) 
             {
                 extraFrameY = rectangleToDraw.Width - rectangleToDraw.Height;
             }
