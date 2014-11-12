@@ -51,3 +51,5 @@ C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\SpinningBeachBallOfDeath.png
 C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\strand.jpg
 C:\Users\Eric\Documents\GitHub\Labb1\obj\x86\Debug\Labb1.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\Svamp.png
+C:\Users\Eric\Documents\GitHub\Labb1\bin\Windows\Debug\Content\Svampen.png

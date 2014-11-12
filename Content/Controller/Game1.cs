@@ -24,8 +24,8 @@ namespace Labb1
         {
             graphics = new GraphicsDeviceManager(this);
             
-            graphics.PreferredBackBufferWidth = 400;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 400;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferWidth = 900;  // set this value to the desired width of your window
+            graphics.PreferredBackBufferHeight = 800;   // set this value to the desired height of your window
 
             //Kan rezisa med denna men den töjer allt
             /*this.Window.AllowUserResizing = true;
@@ -102,7 +102,7 @@ namespace Labb1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.DeepSkyBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             //Ritar ut ramen
             Rectangle titleSafeRectangle = GraphicsDevice.Viewport.TitleSafeArea;

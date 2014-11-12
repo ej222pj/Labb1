@@ -29,7 +29,8 @@ namespace Labb1.Content.View
             camera.setDimensions(m_windowWidth, m_windowHeight);
 
             spriteBatch = new SpriteBatch(graphicsDevice);
-            circleTexture = content.Load<Texture2D>("SpinningBeachBallOfDeath");
+            //circleTexture = content.Load<Texture2D>("SpinningBeachBallOfDeath");
+            circleTexture = content.Load<Texture2D>("Svampen");
             background = content.Load<Texture2D>("strand");
         }
 
@@ -50,7 +51,7 @@ namespace Labb1.Content.View
             
             
             //Sätter en bakgrund
-            spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth , m_windowHeight ), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
+            //spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth , m_windowHeight ), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
 
             // Draw top line
             spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + thicknessOfBorder, rectangleToDraw.Y + thicknessOfBorder, rectangleToDraw.Width - extraFrameY - (thicknessOfBorder * 2), borderSize), borderColor);
