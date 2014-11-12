@@ -27,14 +27,13 @@ namespace Labb1.Content.View
 
             camera = new Camera(frame);
             camera.setDimensions(m_windowWidth, m_windowHeight);
-            
 
             spriteBatch = new SpriteBatch(graphicsDevice);
             circleTexture = content.Load<Texture2D>("SpinningBeachBallOfDeath");
             background = content.Load<Texture2D>("strand");
         }
 
-        internal void drawLevel(Rectangle rectangleToDraw, int thicknessOfBorder, Color borderColor, Texture2D pixel) 
+        internal void drawLevel(Rectangle rectangleToDraw, int thicknessOfBorder, Color borderColor, Texture2D pixel, int borderSize) 
         {  
             spriteBatch.Begin();
 
@@ -54,16 +53,16 @@ namespace Labb1.Content.View
             spriteBatch.Draw(background, new Rectangle(0, 0, m_windowWidth , m_windowHeight ), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0);
 
             // Draw top line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, thicknessOfBorder), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + thicknessOfBorder, rectangleToDraw.Y + thicknessOfBorder, rectangleToDraw.Width - extraFrameY - (thicknessOfBorder * 2), borderSize), borderColor);
             
             //// Draw left line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, thicknessOfBorder, rectangleToDraw.Height), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + thicknessOfBorder, rectangleToDraw.Y + thicknessOfBorder, borderSize, rectangleToDraw.Height - (thicknessOfBorder * 2) - extraFrameX), borderColor);
  
             //// Draw right line
-            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder - extraFrameY), rectangleToDraw.Y, thicknessOfBorder + extraFrameY, rectangleToDraw.Height), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder - extraFrameY), rectangleToDraw.Y + thicknessOfBorder, borderSize, rectangleToDraw.Height - (thicknessOfBorder * 2) - extraFrameX), borderColor);
 
             //// Draw bottom line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder - extraFrameX, rectangleToDraw.Width, thicknessOfBorder + extraFrameX), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X + thicknessOfBorder, rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder - extraFrameX, rectangleToDraw.Width - extraFrameY - (thicknessOfBorder * 2), borderSize), borderColor);
             spriteBatch.End();
         } 
 

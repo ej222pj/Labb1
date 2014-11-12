@@ -16,7 +16,7 @@ namespace Labb1
         BallView drawBall;
         BallSimulation model = new BallSimulation();
         private Texture2D pixel;
-        private static int frame = 20;
+        private static int offSet = 10;
 
 
         public Game1()
@@ -25,15 +25,13 @@ namespace Labb1
             graphics = new GraphicsDeviceManager(this);
             
             graphics.PreferredBackBufferWidth = 400;  // set this value to the desired width of your window
-            graphics.PreferredBackBufferHeight = 500;   // set this value to the desired height of your window
+            graphics.PreferredBackBufferHeight = 400;   // set this value to the desired height of your window
 
             //Kan rezisa med denna men den töjer allt
             /*this.Window.AllowUserResizing = true;
             graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
             graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
             */
-
-            //graphics.ApplyChanges();
            
             Content.RootDirectory = "Content";   
         }
@@ -68,7 +66,7 @@ namespace Labb1
             pixel.SetData(new[] { Color.White }); // so that we can draw whatever color we want on top of it
 
             // TODO: use this.Content to load your game content here
-            drawBall = new BallView(GraphicsDevice, Content, frame);
+            drawBall = new BallView(GraphicsDevice, Content, offSet);
         }
 
         /// <summary>
@@ -104,12 +102,12 @@ namespace Labb1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DeepSkyBlue);
+            //GraphicsDevice.Clear(Color.DeepSkyBlue);
 
             //Ritar ut ramen
             Rectangle titleSafeRectangle = GraphicsDevice.Viewport.TitleSafeArea;
 
-            drawBall.drawLevel(titleSafeRectangle, frame, Color.Black, pixel);
+            drawBall.drawLevel(titleSafeRectangle, offSet, Color.Cyan, pixel, 1);
             drawBall.drawBall(model);
 
             //Kan använda konsolen till att skriva ut testdata

@@ -8,59 +8,62 @@ namespace Labb1.Content
 {
     class Camera
     {
-            public int frame;
-            public int width;
-            public int height;
-            private float scale;
+        public int frame;
+        public int width;
+        public int height;
+        private float scale;
 
-            public Camera(int frame)
+        public Camera(int frame)
+        {
+            this.frame = frame;
+        }
+
+        public void setDimensions(int width, int height)
+        {
+            this.width = width;
+            this.height = height;
+
+            int scaleX = (width - frame * 2);
+            int scaleY = (height - frame * 2);
+
+            scale = scaleX;
+            if (scaleY < scaleX)
             {
-                this.frame = frame;
+                scale = scaleY;
             }
-
-            public void setDimensions(int width, int height)
-            {
-                this.width = width;
-                this.height = height;
-
-                int scaleX = (width - frame * 2);
-                int scaleY = (height - frame * 2);
-
-                scale = scaleX;
-                if (scaleY < scaleX)
-                {
-                    scale = scaleY;
-                }
-            }
+        }
 
         public float getScale()
         {
             return scale;
         }
-        public int getFrame() 
+        public int getFrame()
         {
             return frame;
         }
     }
 }
+
         //private int sizeOfTile = 64;
         //private int borderSize = 64;
         //private int levelWidth = 512;
         //private int levelHeight = 512;
-        //private float scale;
+        //private float scalee;
 
-        //public void reScale(int width/*320*/, int height/*240*/){
+        //public float reScale(int width/*320*/, int height/*240*/)
+        //{
         //    float scaleX = (width - borderSize * 2) / levelWidth;
         //    float scaleY = (height - borderSize * 2) / levelHeight;
 
         //    //Sätter skärmen efter vilken av X/Y som är minst
-        //    scale = scaleX;
+        //    scalee = scaleX;
         //    if (scaleY < scaleX)
         //    {
-        //        scale = scaleY;
+        //        scalee = scaleY;
         //    }
+        //    return scalee;
         //}
-
+ 
         //public float getScale()
         //{
         //    return scale;
