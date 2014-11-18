@@ -76,10 +76,11 @@ namespace Labb1.Content
         //    return new Vector2(x, y);
         //}
         ////Inverterat schackbräde
-        //public Vector2 getVisualForBlack(Vector2 logicalPos)
+        //public Vector2 getVisualForBlack(Vector2 logicalPos, int m_sizeX, int m_sizeY)
         //{
-        //    float x = borderSize + (7 - logicalPos.X) * sizeOfTile;
-        //    float y = borderSize + (7 - logicalPos.Y) * sizeOfTile;
+              
+        //    float x = borderSize + (m_sizeX - logicalPos.X) * sizeOfTile;
+        //    float y = borderSize + (m_sizeY - logicalPos.Y) * sizeOfTile;
 
         //    return new Vector2(x, y);
         //}
