@@ -19,7 +19,7 @@ namespace Labb1.Content.View
         private int m_windowHeight;
 
         private Camera camera;
-
+                                                    
         public BallView(GraphicsDevice graphicsDevice, ContentManager content, int frame)
         {
             m_windowWidth = graphicsDevice.Viewport.Width;
